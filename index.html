@@ -1,1 +1,3745 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Girish Lade® — Independent Designer & Developer</title>
+
+    <meta name="description" content="Girish Balaso Lade — UI/UX Designer, Full-Stack Developer, Product Builder and Founder of LadeStack. Building useful software with thoughtful design.">
+    <meta name="author" content="Girish Balaso Lade">
+    <meta name="theme-color" content="#e9e6dc">
+
+    <meta property="og:title" content="Girish Lade — Design. Code. Create.">
+    <meta property="og:description" content="Independent developer, designer and founder of LadeStack.">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@500;600;700;800;900&family=Caveat:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>document.documentElement.classList.add('js');</script>
+
+    <style>
+        /* ========================================
+           VERMILION GRIDFORGE
+           Editorial portfolio by Girish Lade
+        ======================================== */
+
+        :root {
+            --paper: #e9e6dc;
+            --ink: #11120f;
+            --accent: #e32119;
+            --muted: #65645e;
+            --line: rgba(17,18,15,.34);
+            --outer: #10110e;
+            --tape: #d4c9ab;
+
+            --display: "Anton", Impact, sans-serif;
+            --condensed: "Barlow Condensed", Impact, sans-serif;
+            --hand: "Caveat", cursive;
+            --body: "Space Grotesk", Arial, sans-serif;
+
+            --gutter: clamp(18px, 3.1vw, 42px);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 30px;
+        }
+
+        body {
+            background: var(--outer);
+            color: var(--ink);
+            font-family: var(--body);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            transition: background .4s, color .4s;
+        }
+
+        body.dark {
+            --paper: #242520;
+            --ink: #e9e6dc;
+            --muted: #aaa99f;
+            --line: rgba(233,230,220,.25);
+            --outer: #0b0c09;
+            --tape: #a99b78;
+        }
+
+        ::selection {
+            background: var(--accent);
+            color: white;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font: inherit;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        button, a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 5px;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+
+        .skip-link {
+            position: fixed;
+            left: 15px;
+            top: -100px;
+            z-index: 999;
+            padding: 12px 20px;
+            background: var(--accent);
+            color: #fff;
+        }
+
+        .skip-link:focus {
+            top: 15px;
+        }
+
+        .paper {
+            position: relative;
+            max-width: 1340px;
+            margin: 38px auto;
+            width: calc(100% - 76px);
+            background: var(--paper);
+            border: 1px solid var(--line);
+            box-shadow: 0 20px 100px #0005;
+            isolation: isolate;
+            transition: background .4s;
+        }
+
+        /* Fine printed-paper grain */
+
+        .paper::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 50;
+            pointer-events: none;
+            opacity: .12;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' opacity='.48' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        .scroll-progress {
+            height: 3px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            transform: scaleX(0);
+            transform-origin: left;
+            background: var(--accent);
+            z-index: 100;
+        }
+
+        .micro {
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: .19em;
+            text-transform: uppercase;
+            line-height: 1.65;
+        }
+
+        .section-number {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .05em;
+            padding-top: 4px;
+        }
+
+        .small-line {
+            height: 1px;
+            width: 34px;
+            background: currentColor;
+            margin: 20px 0;
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: baseline;
+            gap: 25px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(22px, 2.5vw, 35px);
+            font-family: var(--condensed);
+            font-weight: 800;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+
+        /* ========================================
+           HEADER
+        ======================================== */
+
+        .header {
+            display: grid;
+            grid-template-columns: 1fr auto 65px;
+            min-height: 80px;
+            border-bottom: 1px solid var(--line);
+            position: relative;
+            z-index: 60;
+        }
+
+        .brand-group {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            padding: 15px var(--gutter);
+        }
+
+        .logo {
+            font-family: var(--condensed);
+            font-size: 25px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -.065em;
+            white-space: nowrap;
+        }
+
+        .logo sup {
+            font-family: var(--body);
+            font-size: 9px;
+            margin-left: 3px;
+            vertical-align: super;
+        }
+
+        .brand-description {
+            border-left: 1px solid var(--line);
+            padding-left: 20px;
+            font-size: 9px;
+            line-height: 1.4;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .navigation {
+            display: flex;
+            border-left: 1px solid var(--line);
+        }
+
+        .navigation a {
+            min-width: 85px;
+            padding: 20px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-transform: uppercase;
+            font-size: 10px;
+            font-weight: 600;
+            position: relative;
+            transition: color .25s, background .25s;
+        }
+
+        .navigation a:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            width: 1px;
+            height: 55%;
+            background: var(--line);
+        }
+
+        .navigation a:hover,
+        .navigation a.active {
+            color: var(--accent);
+        }
+
+        .theme-toggle {
+            border: 0;
+            border-left: 1px solid var(--line);
+            background: transparent;
+            display: grid;
+            place-items: center;
+        }
+
+        .theme-toggle span {
+            display: block;
+            width: 19px;
+            height: 19px;
+            border-radius: 50%;
+            background: var(--ink);
+            transition: transform .3s, background .3s;
+        }
+
+        .theme-toggle:hover span {
+            transform: scale(1.35);
+            background: var(--accent);
+        }
+
+        .menu-toggle {
+            display: none;
+            border: 0;
+            background: transparent;
+            border-left: 1px solid var(--line);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .menu-toggle span {
+            width: 22px;
+            height: 1px;
+            background: var(--ink);
+            transition: transform .3s;
+        }
+
+        .menu-toggle[aria-expanded="true"] span:first-child {
+            transform: translateY(3px) rotate(45deg);
+        }
+
+        .menu-toggle[aria-expanded="true"] span:last-child {
+            transform: translateY(-3px) rotate(-45deg);
+        }
+
+        /* ========================================
+           HERO — EDITORIAL COVER
+        ======================================== */
+
+        .hero {
+            position: relative;
+            min-height: 650px;
+            aspect-ratio: 1.61;
+            overflow: hidden;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .hero-title-wrap {
+            position: relative;
+            margin: 22px var(--gutter) 0;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-family: var(--display);
+            font-size: clamp(65px, 17vw, 235px);
+            font-weight: 400;
+            letter-spacing: -.025em;
+            line-height: 1.05;
+            white-space: nowrap;
+            width: max-content;
+            transform-origin: left top;
+            text-transform: uppercase;
+        }
+
+        .hero-art {
+            position: absolute;
+            z-index: 2;
+            width: 67%;
+            bottom: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            pointer-events: none;
+        }
+
+        .hero-art svg {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 20px 22px rgba(45,10,0,.16));
+        }
+
+        .hero-art-inner {
+            transform: translate(var(--mx, 0px), var(--my, 0px));
+            transition: transform .6s cubic-bezier(.2,.65,.3,1);
+        }
+
+        .hero-copy {
+            position: absolute;
+            z-index: 3;
+            left: var(--gutter);
+            top: 39%;
+            width: 175px;
+        }
+
+        .hero-copy h2 {
+            font-size: clamp(20px, 2.4vw, 35px);
+            text-transform: uppercase;
+            font-weight: 600;
+            line-height: .98;
+            letter-spacing: -.05em;
+        }
+
+        .hero-copy .micro {
+            margin-top: 18px;
+        }
+
+        .hero-note {
+            position: absolute;
+            right: var(--gutter);
+            top: 35%;
+            z-index: 4;
+            width: clamp(95px, 12vw, 158px);
+            aspect-ratio: 1.05;
+            transform: rotate(-13deg);
+            background: #e0d8c3;
+            color: #191a15;
+            box-shadow: 3px 6px 10px #0001;
+            padding: 12px;
+            display: grid;
+            place-content: center;
+            clip-path: polygon(2% 0, 99% 3%, 96% 89%, 84% 100%, 0 96%);
+            transition: transform .3s;
+        }
+
+        .hero-note:hover {
+            transform: rotate(-5deg) translateY(-4px);
+        }
+
+        .hero-note span {
+            font-family: var(--hand);
+            font-size: clamp(22px, 3vw, 39px);
+            text-transform: uppercase;
+            font-weight: 700;
+            line-height: .83;
+            text-align: center;
+        }
+
+        .hero-note span::after {
+            content: "";
+            display: block;
+            width: 75%;
+            height: 2px;
+            background: currentColor;
+            transform: rotate(-9deg);
+            margin: 8px auto 0;
+        }
+
+        .hero-meta {
+            position: absolute;
+            bottom: 36px;
+            right: var(--gutter);
+            width: 160px;
+            z-index: 3;
+        }
+
+        .hero-meta p {
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: 600;
+            line-height: 1.3;
+            letter-spacing: .08em;
+        }
+
+        .hero-meta .small-line {
+            margin: 20px 0;
+        }
+
+        /* Rotating stamp */
+
+        .stamp {
+            position: absolute;
+            bottom: 33px;
+            left: var(--gutter);
+            z-index: 4;
+            width: 119px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background: var(--accent);
+            color: #17120f;
+            display: grid;
+            place-items: center;
+            transition: transform .4s;
+        }
+
+        .stamp:hover {
+            transform: rotate(-15deg) scale(1.05);
+        }
+
+        .stamp svg {
+            width: 92%;
+            height: 92%;
+        }
+
+        .stamp-text {
+            transform-origin: 50px 50px;
+            animation: rotate-stamp 28s linear infinite;
+        }
+
+        @keyframes rotate-stamp {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ========================================
+           TYPOGRAPHIC MANIFESTO
+        ======================================== */
+
+        .manifesto-row {
+            display: grid;
+            grid-template-columns: 49% 51%;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .manifesto-block {
+            min-height: 145px;
+            padding: 13px var(--gutter);
+            display: flex;
+            align-items: center;
+        }
+
+        .manifesto-block + .manifesto-block {
+            border-left: 1px solid var(--line);
+        }
+
+        .heavy-type {
+            font-family: var(--condensed);
+            font-size: clamp(45px, 8.3vw, 122px);
+            line-height: .83;
+            letter-spacing: -.045em;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .hand-type {
+            font-family: var(--hand);
+            font-size: clamp(36px, 6.5vw, 94px);
+            font-weight: 600;
+            text-transform: uppercase;
+            line-height: .86;
+            letter-spacing: -.045em;
+            transform: rotate(-4deg);
+            white-space: nowrap;
+        }
+
+        .manifesto-row:last-child {
+            grid-template-columns: 49% 37% 14%;
+        }
+
+        .manifesto-aside {
+            padding: 24px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            border-left: 1px solid var(--line);
+        }
+
+        .manifesto-aside .small-line {
+            margin: 12px 0 0;
+        }
+
+        /* ========================================
+           ABOUT & EXPERTISE
+        ======================================== */
+
+        .information-grid {
+            display: grid;
+            grid-template-columns: 72% 28%;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 34px var(--gutter);
+        }
+
+        .about-copy {
+            padding-left: 35px;
+        }
+
+        .about .section-heading {
+            margin-left: -35px;
+        }
+
+        .body-copy {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-top: 25px;
+            max-width: 360px;
+        }
+
+        .about .micro {
+            margin-top: 23px;
+        }
+
+        .about-photo {
+            align-self: center;
+            position: relative;
+            transform: rotate(-2deg);
+            margin: 13px 0 0;
+        }
+
+        .about-photo::before {
+            content: "";
+            position: absolute;
+            top: -15px;
+            right: 13%;
+            width: 86px;
+            height: 32px;
+            transform: rotate(13deg);
+            background: var(--tape);
+            z-index: 3;
+            opacity: .85;
+        }
+
+        .about-photo img {
+            width: 100%;
+            height: 290px;
+            object-fit: cover;
+            object-position: center;
+            filter: grayscale(1) contrast(1.05);
+            background: #999990;
+            transition: filter .5s, transform .5s;
+        }
+
+        .photo-window {
+            position: relative;
+            overflow: hidden;
+            background: #85847d;
+        }
+
+        .photo-window::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, #0009, transparent 65%);
+            pointer-events: none;
+        }
+
+        .photo-window:hover img {
+            filter: grayscale(.35);
+            transform: scale(1.04);
+        }
+
+        .photo-caption {
+            position: absolute;
+            z-index: 2;
+            bottom: 20px;
+            left: 20px;
+            color: #f7f3e6;
+            font-family: var(--condensed);
+            font-size: 25px;
+            line-height: .92;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .photo-credit {
+            font-size: 8px;
+            text-transform: uppercase;
+            letter-spacing: .09em;
+            margin-top: 7px;
+            text-align: right;
+        }
+
+        .expertise {
+            padding: 34px 25px;
+            border-left: 1px solid var(--line);
+        }
+
+        .expertise-list {
+            margin: 28px 0 0 35px;
+            list-style: none;
+        }
+
+        .expertise-list li {
+            font-size: 13px;
+            text-transform: uppercase;
+            line-height: 1.9;
+            font-weight: 500;
+            transition: transform .25s, color .25s;
+        }
+
+        .expertise-list li:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .expertise-foot {
+            padding-left: 35px;
+        }
+
+        /* ========================================
+           SELECTED WORK
+        ======================================== */
+
+        .projects {
+            padding: 30px var(--gutter) 34px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .section-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 25px;
+        }
+
+        .text-link {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            background: transparent;
+            border: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .text-link span {
+            font-size: 20px;
+            line-height: 1;
+            transition: transform .25s;
+        }
+
+        .text-link:hover {
+            color: var(--accent);
+        }
+
+        .text-link:hover span {
+            transform: translateX(5px);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 36px;
+        }
+
+        .project-card {
+            display: block;
+            min-width: 0;
+        }
+
+        .project-image {
+            width: 100%;
+            aspect-ratio: 1.62;
+            overflow: hidden;
+            position: relative;
+            background: #171815;
+            color: #efede4;
+        }
+
+        .project-image > img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: .75;
+            filter: grayscale(1);
+            transition: transform .7s, filter .6s;
+        }
+
+        .project-image::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #0008, #0001 65%, #0004);
+            pointer-events: none;
+        }
+
+        .project-card:hover .project-image > img {
+            transform: scale(1.09);
+            filter: grayscale(.25);
+        }
+
+        .image-label {
+            position: absolute;
+            z-index: 3;
+            left: 13px;
+            top: 13px;
+            font-size: 8px;
+            font-weight: 500;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+        }
+
+        .project-overlay {
+            position: absolute;
+            z-index: 5;
+            right: 0;
+            bottom: 0;
+            background: var(--accent);
+            width: 44px;
+            height: 44px;
+            display: grid;
+            place-items: center;
+            color: white;
+            font-size: 25px;
+            transform: translateY(105%);
+            transition: transform .35s;
+        }
+
+        .project-card:hover .project-overlay,
+        .project-card:focus-visible .project-overlay {
+            transform: translateY(0);
+        }
+
+        .project-index {
+            font-size: 10px;
+            margin: 9px 0 3px;
+            color: var(--muted);
+        }
+
+        .project-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        .project-title h3 {
+            font-family: var(--condensed);
+            font-size: 28px;
+            line-height: 1;
+            font-weight: 800;
+            text-transform: uppercase;
+            transition: color .25s;
+        }
+
+        .project-title span {
+            font-size: 9px;
+            color: var(--muted);
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .project-card:hover h3 {
+            color: var(--accent);
+        }
+
+        .project-category {
+            font-size: 10px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+            margin-top: 6px;
+        }
+
+        .project-description {
+            margin-top: 9px;
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        /* Project artwork: GB Coder */
+
+        .code-art {
+            background: radial-gradient(ellipse at center, #403a35, #11120f 75%);
+        }
+
+        .code-art .red-beam {
+            width: 3px;
+            height: 150%;
+            position: absolute;
+            top: -25%;
+            left: 48%;
+            transform: rotate(17deg);
+            background: #ff3126;
+            box-shadow: 0 0 18px 5px #ff231877;
+            z-index: 1;
+        }
+
+        .editor-window {
+            position: absolute;
+            width: 77%;
+            height: 64%;
+            top: 20%;
+            left: 12%;
+            z-index: 2;
+            background: #11120fed;
+            border: 1px solid #77746b;
+            box-shadow: 0 15px 25px #0007;
+            transform: rotate(-7deg);
+            transition: transform .5s;
+        }
+
+        .project-card:hover .editor-window {
+            transform: rotate(0) scale(1.05);
+        }
+
+        .editor-bar {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+            height: 14%;
+            padding: 0 8px;
+            border-bottom: 1px solid #7774;
+        }
+
+        .editor-bar i {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #9b978d;
+        }
+
+        .editor-bar i:first-child {
+            background: var(--accent);
+        }
+
+        .editor-body {
+            display: grid;
+            grid-template-columns: 23% 77%;
+            height: 86%;
+        }
+
+        .editor-sidebar {
+            border-right: 1px solid #7774;
+            padding: 8px 5px;
+        }
+
+        .editor-sidebar b,
+        .code-line {
+            display: block;
+            height: 3px;
+            background: #a7a49a;
+            margin-bottom: 7px;
+            opacity: .6;
+        }
+
+        .editor-code {
+            padding: 12px 10px;
+            overflow: hidden;
+            font: 8px/1.7 monospace;
+            color: #b9b7ad;
+        }
+
+        .editor-code em {
+            color: #ff5145;
+            font-style: normal;
+        }
+
+        /* Project artwork: document processing */
+
+        .document-art {
+            background: #b7b5ab;
+            color: #131411;
+        }
+
+        .document-art > img {
+            opacity: .35;
+        }
+
+        .document-sheet {
+            width: 35%;
+            height: 73%;
+            position: absolute;
+            top: 15%;
+            left: 34%;
+            padding: 13px;
+            background: #e7e3d9;
+            box-shadow: 8px 10px 18px #0004;
+            transform: rotate(-8deg);
+            z-index: 2;
+            transition: transform .5s;
+        }
+
+        .document-sheet.back {
+            background: #e32119;
+            left: 43%;
+            top: 12%;
+            transform: rotate(17deg);
+            color: white;
+            z-index: 1;
+        }
+
+        .document-sheet strong {
+            font-family: var(--condensed);
+            font-size: clamp(22px, 4vw, 49px);
+            line-height: .9;
+            font-weight: 900;
+            letter-spacing: -.06em;
+        }
+
+        .document-sheet i {
+            display: block;
+            width: 100%;
+            background: #1a1a1833;
+            height: 2px;
+            margin: 6px 0;
+        }
+
+        .document-sheet small {
+            font-size: 8px;
+            text-transform: uppercase;
+        }
+
+        .project-card:hover .document-sheet {
+            transform: rotate(-14deg) translateX(-5px);
+        }
+
+        .project-card:hover .document-sheet.back {
+            transform: rotate(23deg) translateX(6px);
+        }
+
+        /* Project artwork: Markdown publishing */
+
+        .markdown-art {
+            background: radial-gradient(ellipse at center, #453431, #0f100d 80%);
+        }
+
+        .markdown-art > img {
+            opacity: .35;
+        }
+
+        .markdown-symbol {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            font-family: var(--display);
+            font-size: clamp(50px, 10vw, 115px);
+            letter-spacing: -.08em;
+            color: #e32119;
+            text-shadow:
+                0 2px 0 #84100b,
+                0 4px 0 #84100b,
+                0 6px 0 #84100b,
+                0 8px 0 #84100b,
+                0 20px 25px #0009;
+            transform: rotate(-8deg);
+            transition: transform .5s;
+        }
+
+        .project-card:hover .markdown-symbol {
+            transform: rotate(0) scale(1.08);
+        }
+
+        .extra-projects {
+            margin-top: 32px;
+            padding-top: 30px;
+            border-top: 1px solid var(--line);
+        }
+
+        .project-poster {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--display);
+            font-size: clamp(45px, 7vw, 95px);
+            z-index: 2;
+            transition: transform .5s;
+        }
+
+        .project-card:hover .project-poster {
+            transform: scale(1.08) rotate(-5deg);
+        }
+
+        .poster-red {
+            background: #d92119;
+        }
+
+        .poster-light {
+            background: #b5b0a5;
+            color: #141510;
+        }
+
+        /* ========================================
+           PHILOSOPHY STRIP
+        ======================================== */
+
+        .process {
+            border-bottom: 1px solid var(--line);
+        }
+
+        .process-header {
+            padding: 25px var(--gutter);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .process-step {
+            position: relative;
+            padding: 24px var(--gutter) 28px;
+            transition: color .3s, background .3s;
+        }
+
+        .process-step:not(:last-child) {
+            border-right: 1px solid var(--line);
+        }
+
+        .process-step:hover {
+            background: var(--ink);
+            color: var(--paper);
+        }
+
+        .process-step .micro {
+            opacity: .7;
+        }
+
+        .process-step h3 {
+            font-family: var(--condensed);
+            font-size: clamp(28px, 4vw, 53px);
+            text-transform: uppercase;
+            font-weight: 900;
+            letter-spacing: -.045em;
+            margin: 14px 0 9px;
+            line-height: 1;
+        }
+
+        .process-step p {
+            font-size: 12px;
+            line-height: 1.6;
+            max-width: 200px;
+        }
+
+        .process-arrow {
+            position: absolute;
+            top: 24px;
+            right: 22px;
+            font-size: 23px;
+            color: var(--accent);
+        }
+
+        /* ========================================
+           TECH STACK
+        ======================================== */
+
+        .stack-strip {
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .stack-label {
+            flex-shrink: 0;
+            padding: 18px var(--gutter);
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            background: var(--ink);
+            color: var(--paper);
+            align-self: stretch;
+            display: flex;
+            align-items: center;
+        }
+
+        .marquee {
+            overflow: hidden;
+            flex: 1;
+        }
+
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marquee 32s linear infinite;
+        }
+
+        .marquee:hover .marquee-track {
+            animation-play-state: paused;
+        }
+
+        .marquee-group {
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+        }
+
+        .marquee-group span {
+            font-family: var(--condensed);
+            font-weight: 700;
+            font-size: 22px;
+            text-transform: uppercase;
+            padding: 14px 25px;
+        }
+
+        .marquee-group span::after {
+            content: "✳";
+            color: var(--accent);
+            margin-left: 40px;
+            font-size: 15px;
+        }
+
+        @keyframes marquee {
+            to { transform: translateX(-50%); }
+        }
+
+        /* ========================================
+           CONTACT
+        ======================================== */
+
+        .contact {
+            padding: 30px var(--gutter);
+            display: grid;
+            grid-template-columns: 55% 28% 17%;
+            align-items: center;
+            border-bottom: 1px solid var(--line);
+            min-height: 245px;
+        }
+
+        .contact-heading {
+            display: flex;
+            gap: 23px;
+            align-self: start;
+        }
+
+        .contact-heading h2 {
+            font-family: var(--condensed);
+            font-size: clamp(45px, 6.2vw, 89px);
+            font-weight: 900;
+            letter-spacing: -.045em;
+            text-transform: uppercase;
+            line-height: .83;
+        }
+
+        .contact-heading .hand-type {
+            display: inline-block;
+            font-size: clamp(45px, 6.4vw, 87px);
+            margin-left: 10px;
+            font-weight: 700;
+        }
+
+        .contact-copy {
+            padding: 10px;
+        }
+
+        .contact-copy p {
+            font-size: 13px;
+            line-height: 1.5;
+            max-width: 245px;
+        }
+
+        .solid-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 22px;
+            padding: 14px 22px;
+            background: var(--ink);
+            color: var(--paper);
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-top: 19px;
+            transition: color .3s, background .3s;
+        }
+
+        .solid-button span {
+            font-size: 18px;
+            line-height: 1;
+            transition: transform .3s;
+        }
+
+        .solid-button:hover {
+            color: white;
+            background: var(--accent);
+        }
+
+        .solid-button:hover span {
+            transform: translateX(5px);
+        }
+
+        .contact-stamp {
+            width: 140px;
+            max-width: 100%;
+            justify-self: end;
+            animation: rotate-stamp 35s linear infinite;
+        }
+
+        /* ========================================
+           FOOTER
+        ======================================== */
+
+        .footer {
+            min-height: 70px;
+            padding: 20px var(--gutter);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .footer-logo {
+            font-size: 20px;
+        }
+
+        .footer-tagline {
+            color: var(--muted);
+            font-size: 8px;
+            letter-spacing: .22em;
+        }
+
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: flex-end;
+        }
+
+        .social-links a {
+            font-size: 9px;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: color .25s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 23px;
+            right: 23px;
+            z-index: 90;
+            background: var(--accent);
+            color: white;
+            border: 0;
+            width: 43px;
+            height: 43px;
+            font-size: 23px;
+            display: grid;
+            place-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: opacity .3s, visibility .3s, transform .3s;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* ========================================
+           ANIMATIONS
+        ======================================== */
+
+        @keyframes hero-enter {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-copy,
+        .hero-meta,
+        .hero-art-inner {
+            animation: hero-enter .9s ease both;
+        }
+
+        .hero-copy {
+            animation-delay: .12s;
+        }
+
+        .hero-meta {
+            animation-delay: .2s;
+        }
+
+        .js .reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition:
+                opacity .7s ease,
+                transform .7s cubic-bezier(.2,.65,.3,1);
+        }
+
+        .js .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========================================
+           TABLET
+        ======================================== */
+
+        @media (max-width: 1100px) {
+
+            .paper {
+                width: calc(100% - 40px);
+                margin: 20px auto;
+            }
+
+            .header {
+                min-height: 65px;
+                grid-template-columns: 1fr auto 50px;
+            }
+
+            .navigation a {
+                min-width: 65px;
+                padding: 18px 13px;
+                font-size: 9px;
+            }
+
+            .brand-group {
+                gap: 12px;
+            }
+
+            .brand-description {
+                padding-left: 12px;
+                font-size: 8px;
+            }
+
+            .hero {
+                min-height: 520px;
+            }
+
+            .hero-meta {
+                width: 118px;
+            }
+
+            .hero-copy {
+                width: 145px;
+            }
+
+            .hero-art {
+                width: 69%;
+            }
+
+            .stamp {
+                width: 95px;
+            }
+
+            .manifesto-block {
+                min-height: 110px;
+            }
+
+            .about {
+                gap: 20px;
+            }
+
+            .about-copy {
+                padding-left: 20px;
+            }
+
+            .about .section-heading {
+                margin-left: -20px;
+            }
+
+            .section-heading {
+                gap: 15px;
+            }
+
+            .about-photo img {
+                height: 250px;
+            }
+
+            .expertise {
+                padding: 30px 18px;
+            }
+
+            .expertise-list,
+            .expertise-foot {
+                margin-left: 0;
+                padding-left: 0;
+            }
+
+            .project-grid {
+                gap: 22px;
+            }
+
+            .contact-stamp {
+                width: 110px;
+            }
+        }
+
+        /* ========================================
+           MOBILE
+        ======================================== */
+
+        @media (max-width: 760px) {
+
+            :root {
+                --gutter: 18px;
+            }
+
+            .paper {
+                width: calc(100% - 20px);
+                margin: 10px auto;
+            }
+
+            .header {
+                grid-template-columns: 1fr 45px 45px;
+                min-height: 65px;
+            }
+
+            .brand-group {
+                padding: 12px var(--gutter);
+            }
+
+            .logo {
+                font-size: 23px;
+            }
+
+            .brand-description {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .navigation {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 100%;
+                display: none;
+                flex-direction: column;
+                background: var(--paper);
+                border-left: 0;
+                border-bottom: 1px solid var(--line);
+                box-shadow: 0 15px 20px #0002;
+            }
+
+            .navigation.open {
+                display: flex;
+            }
+
+            .navigation a {
+                justify-content: flex-start;
+                min-height: 54px;
+                padding: 14px 20px;
+                font-size: 13px;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .navigation a::after {
+                display: none;
+            }
+
+            .theme-toggle {
+                grid-column: 2;
+                grid-row: 1;
+            }
+
+            .menu-toggle {
+                grid-column: 3;
+                grid-row: 1;
+            }
+
+            .hero {
+                min-height: 0;
+                height: clamp(460px, 112vw, 680px);
+                aspect-ratio: auto;
+            }
+
+            .hero-title-wrap {
+                margin-top: 17px;
+            }
+
+            .hero-title {
+                font-size: 20vw;
+            }
+
+            .hero-art {
+                width: 105%;
+                max-width: 590px;
+                left: 49%;
+                bottom: 0;
+            }
+
+            .hero-copy {
+                top: 25%;
+                width: 115px;
+            }
+
+            .hero-copy h2 {
+                font-size: 20px;
+            }
+
+            .hero-copy .small-line {
+                margin: 12px 0;
+            }
+
+            .hero-copy .micro {
+                font-size: 8px;
+                margin-top: 10px;
+            }
+
+            .hero-note {
+                top: 23%;
+                right: 13px;
+                width: 89px;
+            }
+
+            .hero-note span {
+                font-size: 25px;
+            }
+
+            .hero-meta {
+                display: none;
+            }
+
+            .stamp {
+                width: 69px;
+                bottom: 17px;
+                left: 15px;
+            }
+
+            .manifesto-row {
+                grid-template-columns: 49% 51%;
+            }
+
+            .manifesto-row:last-child {
+                grid-template-columns: 49% 51%;
+            }
+
+            .manifesto-block {
+                min-height: 83px;
+                padding: 12px;
+            }
+
+            .heavy-type {
+                font-size: clamp(37px, 9.8vw, 72px);
+            }
+
+            .hand-type {
+                font-size: clamp(28px, 7.8vw, 60px);
+            }
+
+            .manifesto-aside {
+                display: none;
+            }
+
+            .information-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about {
+                padding: 25px var(--gutter);
+                grid-template-columns: 1fr 1fr;
+                gap: 22px;
+            }
+
+            .about-copy {
+                padding-left: 0;
+            }
+
+            .about .section-heading {
+                margin-left: 0;
+            }
+
+            .section-heading {
+                gap: 13px;
+            }
+
+            .body-copy {
+                margin-top: 17px;
+                font-size: 12px;
+            }
+
+            .about-photo img {
+                height: 235px;
+            }
+
+            .photo-caption {
+                font-size: 20px;
+                bottom: 12px;
+                left: 12px;
+            }
+
+            .expertise {
+                border-left: 0;
+                border-top: 1px solid var(--line);
+                padding: 25px var(--gutter);
+            }
+
+            .expertise-list {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 4px 15px;
+                margin-top: 20px;
+            }
+
+            .expertise-foot .small-line {
+                margin: 15px 0;
+            }
+
+            .projects {
+                padding: 25px var(--gutter);
+            }
+
+            .project-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 25px 15px;
+            }
+
+            .project-title h3 {
+                font-size: 24px;
+            }
+
+            .project-title span {
+                font-size: 8px;
+            }
+
+            .project-description {
+                font-size: 11px;
+            }
+
+            .project-category {
+                font-size: 9px;
+            }
+
+            .text-link {
+                font-size: 9px;
+                gap: 5px;
+            }
+
+            .project-overlay {
+                width: 29px;
+                height: 29px;
+                font-size: 17px;
+                transform: none;
+            }
+
+            .process-header {
+                padding: 22px var(--gutter);
+            }
+
+            .process-header > .micro {
+                display: none;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .process-step:nth-child(2) {
+                border-right: 0;
+            }
+
+            .process-step:nth-child(-n+2) {
+                border-bottom: 1px solid var(--line);
+            }
+
+            .process-step h3 {
+                font-size: 37px;
+            }
+
+            .stack-label {
+                padding: 12px;
+                font-size: 9px;
+            }
+
+            .marquee-group span {
+                font-size: 18px;
+                padding: 10px 15px;
+            }
+
+            .contact {
+                grid-template-columns: 1fr 95px;
+                padding: 25px var(--gutter);
+                gap: 20px 10px;
+            }
+
+            .contact-heading {
+                grid-column: 1 / -1;
+                gap: 14px;
+            }
+
+            .contact-heading h2 {
+                font-size: clamp(47px, 10vw, 70px);
+            }
+
+            .contact-copy {
+                padding: 0 0 0 25px;
+            }
+
+            .contact-copy p {
+                font-size: 12px;
+            }
+
+            .contact-stamp {
+                width: 95px;
+            }
+
+            .footer {
+                padding: 20px var(--gutter);
+                flex-wrap: wrap;
+                gap: 13px;
+            }
+
+            .footer-tagline {
+                display: none;
+            }
+
+            .social-links {
+                gap: 13px;
+            }
+
+            .back-to-top {
+                right: 13px;
+                bottom: 13px;
+                width: 37px;
+                height: 37px;
+            }
+        }
+
+        @media (max-width: 420px) {
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .about-photo {
+                margin: 10px 7px;
+            }
+
+            .about-photo img {
+                height: 260px;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-image {
+                aspect-ratio: 1.75;
+            }
+
+            .project-title h3 {
+                font-size: 29px;
+            }
+
+            .document-sheet strong {
+                font-size: 42px;
+            }
+
+            .markdown-symbol {
+                font-size: 100px;
+            }
+
+            .project-poster {
+                font-size: 90px;
+            }
+
+            .footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .social-links {
+                justify-content: flex-start;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+
+            .js .reveal {
+                opacity: 1;
+                transform: none;
+            }
+
+            .hero-art-inner {
+                transform: none;
+            }
+        }
+
+        @media print {
+
+            body {
+                background: white;
+            }
+
+            .paper {
+                width: 100%;
+                margin: 0;
+                box-shadow: none;
+            }
+
+            .back-to-top,
+            .scroll-progress,
+            .theme-toggle,
+            .menu-toggle {
+                display: none;
+            }
+
+            .js .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+    <div class="paper" id="top">
+
+        <!-- HEADER -->
+
+        <header class="header">
+
+            <div class="brand-group">
+
+                <a class="logo" href="#top" aria-label="Girish Lade home">
+                    GIRISHL ADE<sup>®</sup>
+                </a>
+
+                <div class="brand-description">
+                    UI/UX DESIGN<br>
+                    FULL-STACK DEVELOPMENT<br>
+                    INDEPENDENT PRODUCTS
+                </div>
+
+            </div>
+
+            <nav class="navigation" id="navigation" aria-label="Main navigation">
+
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#process">Process</a>
+                <a href="#expertise">Expertise</a>
+                <a href="#contact">Contact</a>
+
+            </nav>
+
+            <button class="theme-toggle" id="themeToggle"
+                    aria-label="Switch to dark theme"
+                    aria-pressed="false">
+
+                <span></span>
+
+            </button>
+
+            <button class="menu-toggle" id="menuToggle"
+                    aria-label="Open navigation"
+                    aria-controls="navigation"
+                    aria-expanded="false">
+
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </header>
+
+        <main id="main">
+
+            <!-- HERO -->
+
+            <section class="hero" id="hero" aria-labelledby="heroTitle">
+
+                <div class="hero-title-wrap">
+
+                    <h1 class="hero-title" id="heroTitle">GIRISH LADE</h1>
+
+                </div>
+
+                <div class="hero-copy">
+
+                    <h2>
+                        IDEAS<br>
+                        IN CODE.<br>
+                        DESIGN<br>
+                        THAT LASTS.
+                    </h2>
+
+                    <div class="small-line"></div>
+
+                    <p class="micro">
+                        Product Design<br>
+                        Web Development<br>
+                        Creative Engineering
+                    </p>
+
+                </div>
+
+                <div class="hero-note">
+
+                    <span>
+                        BUILD<br>
+                        WHAT<br>
+                        MATTERS.
+                    </span>
+
+                </div>
+
+                <!--
+                    Original inline SVG illustration.
+                    No separate image file or dependency.
+                    Inspired by industrial red robotics.
+                -->
+
+                <div class="hero-art" aria-hidden="true">
+
+                    <div class="hero-art-inner">
+
+                        <svg viewBox="0 0 720 540" xmlns="http://www.w3.org/2000/svg">
+
+                            <defs>
+
+                                <linearGradient id="redMetal" x1="0" y1="0" x2="1" y2="1">
+                                    <stop offset="0" stop-color="#ff8070"/>
+                                    <stop offset=".15" stop-color="#ff3127"/>
+                                    <stop offset=".36" stop-color="#db1710"/>
+                                    <stop offset=".7" stop-color="#9c100b"/>
+                                    <stop offset="1" stop-color="#430705"/>
+                                </linearGradient>
+
+                                <linearGradient id="redLight" x1="0" y1="0" x2=".8" y2="1">
+                                    <stop offset="0" stop-color="#ffb39f"/>
+                                    <stop offset=".18" stop-color="#f94b36"/>
+                                    <stop offset=".5" stop-color="#e31c13"/>
+                                    <stop offset="1" stop-color="#790906"/>
+                                </linearGradient>
+
+                                <linearGradient id="redDark" x1="0" y1="0" x2="1" y2=".7">
+                                    <stop stop-color="#6d0805"/>
+                                    <stop offset=".4" stop-color="#d82016"/>
+                                    <stop offset=".7" stop-color="#a40906"/>
+                                    <stop offset="1" stop-color="#320604"/>
+                                </linearGradient>
+
+                                <linearGradient id="blackMetal" x1="0" y1="0" x2=".8" y2="1">
+                                    <stop stop-color="#56514b"/>
+                                    <stop offset=".25" stop-color="#191a18"/>
+                                    <stop offset=".7" stop-color="#080908"/>
+                                    <stop offset="1" stop-color="#39332e"/>
+                                </linearGradient>
+
+                                <radialGradient id="glass">
+                                    <stop stop-color="#4e100f"/>
+                                    <stop offset=".18" stop-color="#1a0909"/>
+                                    <stop offset=".33" stop-color="#68251d"/>
+                                    <stop offset=".5" stop-color="#100b0b"/>
+                                    <stop offset=".8" stop-color="#242222"/>
+                                    <stop offset="1" stop-color="#060606"/>
+                                </radialGradient>
+
+                                <radialGradient id="shoulder" cx=".25" cy=".15" r=".9">
+                                    <stop stop-color="#ff9e8a"/>
+                                    <stop offset=".2" stop-color="#ff3528"/>
+                                    <stop offset=".5" stop-color="#e31b11"/>
+                                    <stop offset="1" stop-color="#6a0905"/>
+                                </radialGradient>
+
+                                <linearGradient id="steel" x1="0" y1="0" x2="1" y2="0">
+                                    <stop stop-color="#161514"/>
+                                    <stop offset=".3" stop-color="#89817a"/>
+                                    <stop offset=".5" stop-color="#2d2c2a"/>
+                                    <stop offset=".8" stop-color="#110e0c"/>
+                                    <stop offset="1" stop-color="#53514c"/>
+                                </linearGradient>
+
+                                <pattern id="vents" width="8" height="8" patternUnits="userSpaceOnUse">
+                                    <rect width="8" height="8" fill="#9f100b"/>
+                                    <rect y="1" width="8" height="3" rx="1" fill="#220b08"/>
+                                </pattern>
+
+                                <pattern id="lensRibs" width="7" height="7" patternUnits="userSpaceOnUse">
+                                    <rect width="7" height="7" fill="#171512"/>
+                                    <path d="M1 0V7" stroke="#56504a" stroke-width="2"/>
+                                </pattern>
+
+                                <filter id="redGlow" x="-100%" y="-100%" width="300%" height="300%">
+                                    <feGaussianBlur stdDeviation="5"/>
+                                </filter>
+
+                                <filter id="machineShadow" x="-30%" y="-30%" width="160%" height="160%">
+                                    <feDropShadow dx="5" dy="9" stdDeviation="5" flood-opacity=".35"/>
+                                </filter>
+
+                            </defs>
+
+                            <!-- Rear mechanical support -->
+
+                            <path d="M254 372C246 318 227 300 214 258
+                                     C205 233 210 190 234 184"
+                                  fill="none" stroke="#11110e" stroke-width="13"/>
+
+                            <path d="M254 372C246 318 227 300 214 258
+                                     C205 233 210 190 234 184"
+                                  fill="none" stroke="#807770" stroke-width="2"/>
+
+                            <!-- Torso -->
+
+                            <path d="M173 540L194 463Q232 423 293 415
+                                     L427 410Q491 424 544 476L579 540Z"
+                                  fill="url(#blackMetal)" stroke="#170b08" stroke-width="4"/>
+
+                            <path d="M240 540L267 471L385 443L466 478L493 540Z"
+                                  fill="url(#redDark)" stroke="#420b06" stroke-width="5"/>
+
+                            <path d="M284 477L382 453L431 481L413 540H288Z"
+                                  fill="url(#redMetal)"/>
+
+                            <!-- Left shoulder assembly -->
+
+                            <path d="M88 540Q99 490 133 461Q177 419 236 432
+                                     Q293 447 319 493L329 540Z"
+                                  fill="url(#shoulder)" stroke="#8a0d07" stroke-width="3"/>
+
+                            <path d="M109 540Q118 484 170 459
+                                     Q216 441 256 472L278 540"
+                                  fill="none" stroke="#ff8c73" stroke-width="3" opacity=".85"/>
+
+                            <path d="M158 540Q181 484 230 476
+                                     Q265 478 288 540"
+                                  fill="url(#redDark)" stroke="#810904" stroke-width="5"/>
+
+                            <path d="M185 540Q203 505 235 502L252 540"
+                                  fill="none" stroke="#f55039" stroke-width="5"/>
+
+                            <!-- Right shoulder assembly -->
+
+                            <path d="M442 540Q443 476 478 450Q518 425 559 465
+                                     Q591 496 605 540Z"
+                                  fill="url(#redMetal)" stroke="#710c05" stroke-width="4"/>
+
+                            <path d="M483 540Q470 488 502 465
+                                     Q544 461 571 540"
+                                  fill="none" stroke="#ff765c" stroke-width="4"/>
+
+                            <path d="M510 540Q503 503 517 488L554 540"
+                                  fill="url(#blackMetal)"/>
+
+                            <!-- Neck foundation -->
+
+                            <ellipse cx="367" cy="435" rx="118" ry="39"
+                                     fill="url(#blackMetal)" stroke="#0a0908" stroke-width="6"/>
+
+                            <ellipse cx="367" cy="426" rx="95" ry="31"
+                                     fill="url(#redDark)" stroke="#1f0b08" stroke-width="4"/>
+
+                            <path d="M294 354L307 428Q365 454 427 420L439 343Z"
+                                  fill="url(#blackMetal)" stroke="#090908" stroke-width="4"/>
+
+                            <path d="M313 366L323 411L343 424V368Z"
+                                  fill="url(#steel)"/>
+
+                            <path d="M385 361L402 411L415 419L426 358Z"
+                                  fill="url(#steel)"/>
+
+                            <path d="M302 393Q360 417 429 389M305 405Q365 431 426 404"
+                                  stroke="#070706" stroke-width="8" fill="none"/>
+
+                            <!-- Rear helmet structure -->
+
+                            <g filter="url(#machineShadow)">
+
+                                <path d="M237 141Q242 79 291 48
+                                         Q347 10 414 31Q467 47 491 92
+                                         L504 161L472 211L280 224
+                                         L223 181Z"
+                                      fill="url(#redMetal)" stroke="#6f0b06" stroke-width="3"/>
+
+                                <path d="M245 124Q258 62 312 44
+                                         Q371 23 423 46L468 83L473 104
+                                         L350 88L293 126Z"
+                                      fill="url(#redLight)"/>
+
+                                <path d="M270 99Q291 56 345 45L363 51
+                                         L320 89L287 106Z"
+                                      fill="#ff8670" opacity=".65"/>
+
+                                <path d="M335 33L387 31L424 50L431 73
+                                         L377 61L349 69L317 59Z"
+                                      fill="url(#redMetal)" stroke="#a61108" stroke-width="2"/>
+
+                                <path d="M376 40L417 50L424 63L381 52Z"
+                                      fill="#ffb59b" opacity=".8"/>
+
+                                <path d="M244 132L280 113L298 128
+                                         L289 164L241 185L225 171Z"
+                                      fill="url(#redDark)"/>
+
+                                <path d="M287 111L320 88L410 92
+                                         L474 113L489 149L455 166
+                                         L305 151Z"
+                                      fill="url(#blackMetal)"/>
+
+                                <path d="M303 107L349 97L411 105L458 118"
+                                      fill="none" stroke="#ff5545" stroke-width="5"/>
+
+                                <path d="M337 110L413 116L453 132"
+                                      fill="none" stroke="#7f7870" stroke-width="3"/>
+
+                            </g>
+
+                            <!-- Mechanical ear -->
+
+                            <ellipse cx="241" cy="196" rx="38" ry="55"
+                                     fill="url(#redDark)" stroke="#6a0a05" stroke-width="4"/>
+
+                            <ellipse cx="236" cy="194" rx="22" ry="36"
+                                     fill="url(#blackMetal)" stroke="#f2412d" stroke-width="6"/>
+
+                            <ellipse cx="235" cy="192" rx="10" ry="19"
+                                     fill="#c9160d" stroke="#ff6250" stroke-width="2"/>
+
+                            <path d="M225 211Q197 238 209 281L244 342"
+                                  fill="none" stroke="#171815" stroke-width="8"/>
+
+                            <!-- Main camera body -->
+
+                            <path d="M262 137L309 116L378 135
+                                     L402 177L390 299L348 343
+                                     L274 309L248 244Z"
+                                  fill="url(#redMetal)" stroke="#6b0b06" stroke-width="4"/>
+
+                            <path d="M263 147L304 128L355 142L370 158
+                                     L303 153L268 171Z"
+                                  fill="#f64a38"/>
+
+                            <path d="M260 177L282 166L285 256L271 268L257 240Z"
+                                  fill="url(#vents)" stroke="#ed382b" stroke-width="2"/>
+
+                            <path d="M292 165L349 150L372 168L364 258
+                                     L318 279L288 255Z"
+                                  fill="url(#redLight)" stroke="#9c1209" stroke-width="2"/>
+
+                            <path d="M301 172L345 160" stroke="#ff9b82" stroke-width="2"/>
+
+                            <path d="M286 276L318 291L355 274L352 304
+                                     L315 319L290 304Z"
+                                  fill="url(#blackMetal)"/>
+
+                            <path d="M275 306L322 332L355 312L365 351
+                                     L324 371L284 349Z"
+                                  fill="url(#redDark)" stroke="#3b0805" stroke-width="4"/>
+
+                            <!-- Body identity -->
+
+                            <g fill="#fcead7" font-family="Arial, sans-serif" font-weight="700">
+                                <text x="300" y="198" font-size="18" transform="rotate(-5 300 198)">LADE</text>
+                                <text x="300" y="216" font-size="18" transform="rotate(-5 300 216)">STACK</text>
+                                <text x="303" y="235" font-size="6" letter-spacing="1.2">DESIGN SYSTEM</text>
+                            </g>
+
+                            <!-- Camera lens base -->
+
+                            <path d="M359 166L397 151L443 165L454 278
+                                     L411 307L367 284Z"
+                                  fill="url(#blackMetal)" stroke="#0d0b09" stroke-width="4"/>
+
+                            <ellipse cx="402" cy="227" rx="39" ry="67"
+                                     fill="#141310" stroke="#cf2116" stroke-width="5"/>
+
+                            <path d="M402 160L481 166L498 284L410 294Z"
+                                  fill="url(#lensRibs)" stroke="#0b0b0a" stroke-width="3"/>
+
+                            <ellipse cx="455" cy="226" rx="43" ry="65"
+                                     fill="url(#blackMetal)" stroke="#4d4641" stroke-width="3"/>
+
+                            <ellipse cx="458" cy="226" rx="32" ry="52"
+                                     fill="url(#glass)" stroke="#10100f" stroke-width="6"/>
+
+                            <!-- Large rectangular lens hood -->
+
+                            <path d="M455 158L495 140L628 154L643 170
+                                     L643 300L625 319L494 310L454 282Z"
+                                  fill="url(#redMetal)" stroke="#770906" stroke-width="4"
+                                  stroke-linejoin="round"/>
+
+                            <path d="M495 145L627 159L636 173L636 295
+                                     L622 310L495 300L484 284L484 168Z"
+                                  fill="#8d0d07" stroke="#ff5540" stroke-width="4"/>
+
+                            <path d="M501 158L619 170L626 180L626 292
+                                     L616 299L502 290L495 277L495 175Z"
+                                  fill="url(#blackMetal)" stroke="#420b07" stroke-width="5"/>
+
+                            <path d="M505 165L615 177L615 284L505 277Z"
+                                  fill="#110807"/>
+
+                            <ellipse cx="558" cy="224" rx="44" ry="52"
+                                     fill="#080606" stroke="#35120e" stroke-width="5"/>
+
+                            <ellipse cx="558" cy="224" rx="35" ry="44"
+                                     fill="url(#glass)" stroke="#251310" stroke-width="3"/>
+
+                            <ellipse cx="558" cy="224" rx="22" ry="29"
+                                     fill="#150b0a" stroke="#4c1711" stroke-width="2"/>
+
+                            <ellipse cx="550" cy="209" rx="8" ry="13"
+                                     fill="#e32d23" opacity=".55" filter="url(#redGlow)"/>
+
+                            <ellipse cx="550" cy="209" rx="4" ry="7"
+                                     fill="#ff8f7c" opacity=".85"/>
+
+                            <path d="M495 145L627 159" stroke="#ff967c" stroke-width="3"/>
+
+                            <path d="M636 173V295" stroke="#e83a28" stroke-width="2"/>
+
+                            <!-- Lens support bracket -->
+
+                            <path d="M452 303L475 318L552 325L568 316
+                                     L563 336L484 342L447 325Z"
+                                  fill="url(#blackMetal)" stroke="#0b0908" stroke-width="3"/>
+
+                            <rect x="487" y="333" width="60" height="12" rx="3"
+                                  fill="url(#redDark)" stroke="#32100a" stroke-width="2"/>
+
+                            <!-- Chin plate -->
+
+                            <path d="M337 299L377 287L438 314L449 355
+                                     L422 391L349 382L326 357Z"
+                                  fill="url(#redMetal)" stroke="#6d0905" stroke-width="4"/>
+
+                            <path d="M345 307L379 299L418 317L411 365
+                                     L356 361Z"
+                                  fill="url(#redLight)"/>
+
+                            <path d="M422 324L441 330L438 351L425 356Z"
+                                  fill="url(#blackMetal)"/>
+
+                            <path d="M337 365L357 377L420 382L432 368
+                                     L429 391L399 410L343 399Z"
+                                  fill="url(#blackMetal)"/>
+
+                            <g fill="#f4d9bf" font-size="7" font-family="Arial, sans-serif" font-weight="700">
+                                <text x="354" y="323">GOOD</text>
+                                <text x="354" y="332">DESIGN.</text>
+                                <text x="354" y="341">BETTER</text>
+                                <text x="354" y="350">SYSTEMS.</text>
+                            </g>
+
+                            <!-- Bolts and metallic detailing -->
+
+                            <g fill="#30201b" stroke="#f2765e" stroke-width="1.5">
+                                <circle cx="278" cy="148" r="5"/>
+                                <circle cx="357" cy="148" r="4"/>
+                                <circle cx="279" cy="280" r="5"/>
+                                <circle cx="343" cy="296" r="4"/>
+                                <circle cx="356" cy="307" r="4"/>
+                                <circle cx="414" cy="324" r="4"/>
+                                <circle cx="362" cy="367" r="4"/>
+                                <circle cx="418" cy="371" r="4"/>
+                                <circle cx="501" cy="159" r="3"/>
+                                <circle cx="621" cy="172" r="3"/>
+                                <circle cx="621" cy="293" r="3"/>
+                            </g>
+
+                            <!-- Gloss reflections -->
+
+                            <g fill="none" stroke-linecap="round">
+
+                                <path d="M250 102Q274 65 304 54"
+                                      stroke="#ffe0bd" stroke-width="4" opacity=".65"/>
+
+                                <path d="M303 47Q333 31 358 36"
+                                      stroke="#ffbba2" stroke-width="4" opacity=".8"/>
+
+                                <path d="M293 170L290 243"
+                                      stroke="#ff9e83" stroke-width="3" opacity=".7"/>
+
+                                <path d="M132 481Q165 450 199 450"
+                                      stroke="#ffba9e" stroke-width="5" opacity=".7"/>
+
+                                <path d="M493 463Q527 448 548 481"
+                                      stroke="#ff9c7c" stroke-width="4" opacity=".6"/>
+
+                            </g>
+
+                        </svg>
+
+                    </div>
+
+                </div>
+
+                <!-- Red circular stamp -->
+
+                <a href="#projects" class="stamp" aria-label="Explore selected projects">
+
+                    <svg viewBox="0 0 100 100">
+
+                        <defs>
+                            <path id="stampCircle"
+                                  d="M50,50 m-34,0 a34,34 0 1,1 68,0 a34,34 0 1,1 -68,0"/>
+                        </defs>
+
+                        <g class="stamp-text">
+
+                            <text fill="currentColor" font-family="Arial" font-size="8" font-weight="700" letter-spacing="2.2">
+                                <textPath href="#stampCircle">
+                                    DESIGN ✳ CODE ✳ CREATE ✳
+                                </textPath>
+                            </text>
+
+                        </g>
+
+                        <g fill="none" stroke="currentColor" stroke-width="1.2">
+
+                            <circle cx="50" cy="50" r="17"/>
+                            <ellipse cx="50" cy="50" rx="8" ry="17"/>
+                            <path d="M33 50H67M50 33V67M36 41H64M36 59H64"/>
+
+                        </g>
+
+                    </svg>
+
+                </a>
+
+                <div class="hero-meta">
+
+                    <p>
+                        An independent<br>
+                        builder for a more<br>
+                        useful digital world.
+                    </p>
+
+                    <div class="small-line"></div>
+
+                    <div class="micro">
+                        PUNE, INDIA<br>
+                        INDEPENDENT PRACTICE
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- MANIFESTO -->
+
+            <section class="manifesto" aria-label="Design manifesto">
+
+                <div class="manifesto-row">
+
+                    <div class="manifesto-block">
+
+                        <div class="heavy-type">DESIGN</div>
+
+                    </div>
+
+                    <div class="manifesto-block">
+
+                        <div class="hand-type">THAT SPEAKS</div>
+
+                    </div>
+
+                </div>
+
+                <div class="manifesto-row">
+
+                    <div class="manifesto-block">
+
+                        <div class="heavy-type">BEFORE</div>
+
+                    </div>
+
+                    <div class="manifesto-block">
+
+                        <div class="hand-type">WORDS.</div>
+
+                    </div>
+
+                    <div class="manifesto-aside">
+
+                        <div class="micro">
+                            Think<br>
+                            Design<br>
+                            Build<br>
+                            Repeat
+                        </div>
+
+                        <div class="small-line"></div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ABOUT AND EXPERTISE -->
+
+            <div class="information-grid">
+
+                <section class="about" id="about">
+
+                    <div class="about-copy reveal">
+
+                        <div class="section-heading">
+
+                            <span class="section-number">01</span>
+
+                            <h2>About</h2>
+
+                        </div>
+
+                        <p class="body-copy">
+                            I'm Girish Balaso Lade, an independent UI/UX designer,
+                            full-stack developer and founder of LadeStack.
+                        </p>
+
+                        <p class="body-copy" style="margin-top:10px;">
+                            With a foundation in Mechanical Engineering, I combine
+                            design thinking and creative engineering to build
+                            useful, accessible and privacy-conscious digital
+                            products.
+                        </p>
+
+                        <div class="small-line"></div>
+
+                        <p class="micro">
+                            Engineer by training.<br>
+                            Builder by choice.
+                        </p>
+
+                    </div>
+
+                    <figure class="about-photo">
+
+                        <div class="photo-window">
+
+                            <!-- TOCABI robot photograph: Mathew Schwartz / Unsplash -->
+
+                            <img
+                                src="https://images.unsplash.com/photo-1633957897986-70e83293f3ff?auto=format&fit=crop&w=850&q=80"
+                                alt="Humanoid robot representing creative engineering"
+                                width="850"
+                                height="650"
+                                loading="lazy"
+                                decoding="async">
+
+                            <div class="photo-caption">
+                                Better Ideas.<br>
+                                Better Systems.<br>
+                                Better Tomorrow.
+                            </div>
+
+                        </div>
+
+                        <figcaption class="photo-credit">
+                            Industrial study / Mathew Schwartz
+                        </figcaption>
+
+                    </figure>
+
+                </section>
+
+                <section class="expertise reveal" id="expertise">
+
+                    <div class="section-heading">
+
+                        <span class="section-number">02</span>
+
+                        <h2>Expertise</h2>
+
+                    </div>
+
+                    <ul class="expertise-list">
+
+                        <li>UI/UX Design</li>
+                        <li>Web Development</li>
+                        <li>Full-Stack Applications</li>
+                        <li>Product Architecture</li>
+                        <li>Developer Tools</li>
+                        <li>AI Integration</li>
+                        <li>Creative Engineering</li>
+
+                    </ul>
+
+                    <div class="expertise-foot">
+
+                        <div class="small-line"></div>
+
+                        <div class="micro">
+                            Ideas engineered<br>
+                            for real impact.
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+            <!-- SELECTED PROJECTS -->
+
+            <section class="projects" id="projects">
+
+                <div class="section-top">
+
+                    <div class="section-heading">
+
+                        <span class="section-number">03</span>
+
+                        <h2>Selected Works</h2>
+
+                    </div>
+
+                    <button class="text-link" id="projectsToggle"
+                            aria-expanded="false"
+                            aria-controls="extraProjects">
+
+                        <span id="projectsToggleText" style="font-size:inherit;">
+                            View all projects
+                        </span>
+
+                        <span aria-hidden="true">→</span>
+
+                    </button>
+
+                </div>
+
+                <div class="project-grid">
+
+                    <!-- GB CODER -->
+
+                    <a class="project-card reveal"
+                       href="https://code.ladestack.in/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+
+                        <div class="project-image code-art">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1760931969401-9bd6ee902798?auto=format&fit=crop&w=800&q=75"
+                                alt=""
+                                width="800"
+                                height="500"
+                                loading="lazy"
+                                decoding="async">
+
+                            <span class="image-label">Developer systems / 01</span>
+
+                            <div class="red-beam"></div>
+
+                            <!-- Conceptual editor artwork -->
+
+                            <div class="editor-window" aria-hidden="true">
+
+                                <div class="editor-bar">
+                                    <i></i><i></i><i></i>
+                                </div>
+
+                                <div class="editor-body">
+
+                                    <div class="editor-sidebar">
+
+                                        <b style="width:80%"></b>
+                                        <b style="width:55%"></b>
+                                        <b style="width:70%"></b>
+                                        <b style="width:45%"></b>
+                                        <b style="width:65%"></b>
+
+                                    </div>
+
+                                    <div class="editor-code">
+
+                                        <em>import</em> { create }<br>
+                                        <em>from</em> 'ladestack';<br><br>
+
+                                        <em>const</em> idea = {<br>
+                                        &nbsp;design: true,<br>
+                                        &nbsp;code: true,<br>
+                                        &nbsp;limits: false<br>
+                                        };<br><br>
+
+                                        create(idea);
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="project-overlay" aria-hidden="true">↗</div>
+
+                        </div>
+
+                        <div class="project-index">001</div>
+
+                        <div class="project-title">
+
+                            <h3>GB Coder</h3>
+
+                            <span>Web IDE</span>
+
+                        </div>
+
+                        <p class="project-category">Browser-based development studio</p>
+
+                        <p class="project-description">
+                            A browser-first coding workspace for creating,
+                            experimenting and developing web applications.
+                        </p>
+
+                    </a>
+
+                    <!-- LS PDF -->
+
+                    <a class="project-card reveal"
+                       href="https://pdf.ladestack.in/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+
+                        <div class="project-image document-art">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1638957319391-9b81b996afca?auto=format&fit=crop&w=800&q=75"
+                                alt=""
+                                width="800"
+                                height="500"
+                                loading="lazy"
+                                decoding="async">
+
+                            <span class="image-label">Document systems / 02</span>
+
+                            <div class="document-sheet back" aria-hidden="true">
+
+                                <strong>PDF.</strong>
+
+                                <i></i><i></i><i></i>
+
+                            </div>
+
+                            <div class="document-sheet" aria-hidden="true">
+
+                                <small>LadeStack</small><br>
+
+                                <strong>PDF<br>TOOLS.</strong>
+
+                                <i></i><i></i><i></i>
+
+                                <small>Local-first workflows</small>
+
+                            </div>
+
+                            <div class="project-overlay" aria-hidden="true">↗</div>
+
+                        </div>
+
+                        <div class="project-index">002</div>
+
+                        <div class="project-title">
+
+                            <h3>LS PDF</h3>
+
+                            <span>UTILITY</span>
+
+                        </div>
+
+                        <p class="project-category">Privacy-conscious PDF toolkit</p>
+
+                        <p class="project-description">
+                            Browser-oriented document tools designed to make
+                            everyday PDF workflows simpler.
+                        </p>
+
+                    </a>
+
+                    <!-- MD2PDF -->
+
+                    <a class="project-card reveal"
+                       href="https://md2pdf.ladestack.in/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+
+                        <div class="project-image markdown-art">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1760931969401-9bd6ee902798?auto=format&fit=crop&w=600&q=70"
+                                alt=""
+                                width="600"
+                                height="400"
+                                loading="lazy"
+                                decoding="async">
+
+                            <span class="image-label">Publishing systems / 03</span>
+
+                            <div class="markdown-symbol" aria-hidden="true">M↓</div>
+
+                            <div class="project-overlay" aria-hidden="true">↗</div>
+
+                        </div>
+
+                        <div class="project-index">003</div>
+
+                        <div class="project-title">
+
+                            <h3>MD2PDF</h3>
+
+                            <span>PRODUCTIVITY</span>
+
+                        </div>
+
+                        <p class="project-category">Markdown publishing workflow</p>
+
+                        <p class="project-description">
+                            Transform Markdown and repository documentation
+                            into organized, polished PDF documents.
+                        </p>
+
+                    </a>
+
+                </div>
+
+                <!-- Additional expandable projects -->
+
+                <div class="extra-projects" id="extraProjects" hidden>
+
+                    <div class="project-grid">
+
+                        <a class="project-card"
+                           href="https://ladestack.in/"
+                           target="_blank"
+                           rel="noopener noreferrer">
+
+                            <div class="project-image poster-red">
+
+                                <span class="image-label">Ecosystem / 04</span>
+
+                                <div class="project-poster" aria-hidden="true">LS.</div>
+
+                                <div class="project-overlay" aria-hidden="true">↗</div>
+
+                            </div>
+
+                            <div class="project-index">004</div>
+
+                            <div class="project-title">
+
+                                <h3>LadeStack</h3>
+
+                                <span>PLATFORM</span>
+
+                            </div>
+
+                            <p class="project-category">
+                                Independent developer ecosystem
+                            </p>
+
+                            <p class="project-description">
+                                A central home for practical browser-first
+                                applications and developer utilities.
+                            </p>
+
+                        </a>
+
+                        <a class="project-card"
+                           href="https://img.ladestack.in/"
+                           target="_blank"
+                           rel="noopener noreferrer">
+
+                            <div class="project-image poster-light">
+
+                                <span class="image-label">Image systems / 05</span>
+
+                                <div class="project-poster" aria-hidden="true">IMG.</div>
+
+                                <div class="project-overlay" aria-hidden="true">↗</div>
+
+                            </div>
+
+                            <div class="project-index">005</div>
+
+                            <div class="project-title">
+
+                                <h3>LS Image</h3>
+
+                                <span>UTILITY</span>
+
+                            </div>
+
+                            <p class="project-category">
+                                Image compression and conversion
+                            </p>
+
+                            <p class="project-description">
+                                A privacy-conscious image optimization
+                                and processing workflow.
+                            </p>
+
+                        </a>
+
+                        <a class="project-card"
+                           href="https://resume.ladestack.in/"
+                           target="_blank"
+                           rel="noopener noreferrer">
+
+                            <div class="project-image markdown-art">
+
+                                <span class="image-label">Career systems / 06</span>
+
+                                <div class="project-poster" style="color:#e32119" aria-hidden="true">
+                                    CV.
+                                </div>
+
+                                <div class="project-overlay" aria-hidden="true">↗</div>
+
+                            </div>
+
+                            <div class="project-index">006</div>
+
+                            <div class="project-title">
+
+                                <h3>Swift Resume</h3>
+
+                                <span>WEB APP</span>
+
+                            </div>
+
+                            <p class="project-category">
+                                Professional resume builder
+                            </p>
+
+                            <p class="project-description">
+                                Create structured resumes with live preview
+                                and PDF export.
+                            </p>
+
+                        </a>
+
+                        <a class="project-card"
+                           href="https://land.ladestack.in/"
+                           target="_blank"
+                           rel="noopener noreferrer">
+
+                            <div class="project-image poster-light">
+
+                                <span class="image-label">Regional utilities / 07</span>
+
+                                <div class="project-poster" aria-hidden="true">m²</div>
+
+                                <div class="project-overlay" aria-hidden="true">↗</div>
+
+                            </div>
+
+                            <div class="project-index">007</div>
+
+                            <div class="project-title">
+
+                                <h3>Bharat Land</h3>
+
+                                <span>CONVERTER</span>
+
+                            </div>
+
+                            <p class="project-category">
+                                Regional land-area conversion
+                            </p>
+
+                            <p class="project-description">
+                                Compare standard and regional Indian
+                                land-measurement units.
+                            </p>
+
+                        </a>
+
+                        <a class="project-card"
+                           href="https://games-ladestack.vercel.app/"
+                           target="_blank"
+                           rel="noopener noreferrer">
+
+                            <div class="project-image poster-red">
+
+                                <span class="image-label">Interactive systems / 08</span>
+
+                                <div class="project-poster" aria-hidden="true">PLAY.</div>
+
+                                <div class="project-overlay" aria-hidden="true">↗</div>
+
+                            </div>
+
+                            <div class="project-index">008</div>
+
+                            <div class="project-title">
+
+                                <h3>GameHub</h3>
+
+                                <span>GAMES</span>
+
+                            </div>
+
+                            <p class="project-category">
+                                Browser-based entertainment
+                            </p>
+
+                            <p class="project-description">
+                                A collection of small interactive
+                                browser games and experiments.
+                            </p>
+
+                        </a>
+
+                        <a class="project-card"
+                           href="https://github.com/girishlade111"
+                           target="_blank"
+                           rel="noopener noreferrer">
+
+                            <div class="project-image code-art">
+
+                                <span class="image-label">Experiments / 09</span>
+
+                                <div class="project-poster" aria-hidden="true">&lt;/&gt;</div>
+
+                                <div class="project-overlay" aria-hidden="true">↗</div>
+
+                            </div>
+
+                            <div class="project-index">009</div>
+
+                            <div class="project-title">
+
+                                <h3>Open Source</h3>
+
+                                <span>GITHUB</span>
+
+                            </div>
+
+                            <p class="project-category">
+                                Code and creative experiments
+                            </p>
+
+                            <p class="project-description">
+                                Explore repositories, prototypes and
+                                ongoing software experiments.
+                            </p>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <noscript>
+                    <p style="margin-top:22px;font-size:12px;">
+                        <a href="https://ladestack.in/apps">
+                            Explore more LadeStack applications →
+                        </a>
+                    </p>
+                </noscript>
+
+            </section>
+
+            <!-- CREATIVE PROCESS -->
+
+            <section class="process" id="process">
+
+                <div class="process-header">
+
+                    <div class="section-heading">
+
+                        <span class="section-number">04</span>
+
+                        <h2>Behind the Build</h2>
+
+                    </div>
+
+                    <span class="micro">From concept to creation</span>
+
+                </div>
+
+                <div class="process-grid">
+
+                    <article class="process-step">
+
+                        <span class="micro">Step / 01</span>
+
+                        <span class="process-arrow" aria-hidden="true">↗</span>
+
+                        <h3>Think.</h3>
+
+                        <p>
+                            Understand the problem, question assumptions
+                            and discover meaningful opportunities.
+                        </p>
+
+                    </article>
+
+                    <article class="process-step">
+
+                        <span class="micro">Step / 02</span>
+
+                        <span class="process-arrow" aria-hidden="true">↗</span>
+
+                        <h3>Design.</h3>
+
+                        <p>
+                            Transform complex ideas into clear,
+                            intentional and usable experiences.
+                        </p>
+
+                    </article>
+
+                    <article class="process-step">
+
+                        <span class="micro">Step / 03</span>
+
+                        <span class="process-arrow" aria-hidden="true">↗</span>
+
+                        <h3>Build.</h3>
+
+                        <p>
+                            Bring the experience to life through
+                            thoughtful architecture and engineering.
+                        </p>
+
+                    </article>
+
+                    <article class="process-step">
+
+                        <span class="micro">Step / 04</span>
+
+                        <span class="process-arrow" aria-hidden="true">↗</span>
+
+                        <h3>Refine.</h3>
+
+                        <p>
+                            Test, learn and iterate until the product
+                            becomes more useful and dependable.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+            <!-- TECHNOLOGY MARQUEE -->
+
+            <section class="stack-strip" aria-label="Technologies and tools">
+
+                <div class="stack-label">My Toolkit</div>
+
+                <div class="marquee">
+
+                    <div class="marquee-track">
+
+                        <div class="marquee-group">
+
+                            <span>React</span>
+                            <span>TypeScript</span>
+                            <span>Astro</span>
+                            <span>Next.js</span>
+                            <span>Node.js</span>
+                            <span>HTML / CSS</span>
+                            <span>Monaco</span>
+                            <span>WebContainers</span>
+                            <span>UI/UX</span>
+                            <span>AI Workflows</span>
+
+                        </div>
+
+                        <div class="marquee-group" aria-hidden="true">
+
+                            <span>React</span>
+                            <span>TypeScript</span>
+                            <span>Astro</span>
+                            <span>Next.js</span>
+                            <span>Node.js</span>
+                            <span>HTML / CSS</span>
+                            <span>Monaco</span>
+                            <span>WebContainers</span>
+                            <span>UI/UX</span>
+                            <span>AI Workflows</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- CONTACT -->
+
+            <section class="contact" id="contact">
+
+                <div class="contact-heading reveal">
+
+                    <span class="section-number">05</span>
+
+                    <h2>
+                        LET'S<br>
+                        CREATE<br>
+                        SOMETHING
+                        <span class="hand-type">NEXT.</span>
+                    </h2>
+
+                </div>
+
+                <div class="contact-copy reveal">
+
+                    <p>
+                        New projects, fresh ideas, interesting problems,
+                        or just a good conversation — I'm always
+                        interested in building something useful.
+                    </p>
+
+                    <a class="solid-button" href="mailto:admin@ladestack.in">
+
+                        Get in touch
+
+                        <span aria-hidden="true">→</span>
+
+                    </a>
+
+                </div>
+
+                <svg class="contact-stamp"
+                     viewBox="0 0 120 120"
+                     aria-hidden="true">
+
+                    <defs>
+
+                        <path id="contactCircle"
+                              d="M60,60 m-45,0 a45,45 0 1,1 90,0 a45,45 0 1,1 -90,0"/>
+
+                    </defs>
+
+                    <text fill="currentColor"
+                          font-family="Arial"
+                          font-size="8"
+                          font-weight="700"
+                          letter-spacing="2.6">
+
+                        <textPath href="#contactCircle">
+                            GOOD IDEAS ✳ BUILD A BETTER TOMORROW ✳
+                        </textPath>
+
+                    </text>
+
+                    <path d="M60 42L62 58L78 60L62 62L60 78L58 62L42 60L58 58Z"
+                          fill="currentColor"/>
+
+                </svg>
+
+            </section>
+
+        </main>
+
+        <!-- FOOTER -->
+
+        <footer class="footer">
+
+            <a class="logo footer-logo" href="#top">
+                GIRISH LADE<sup>®</sup>
+            </a>
+
+            <p class="footer-tagline">
+                DESIGN FOR A MORE USEFUL TOMORROW.
+            </p>
+
+            <div class="social-links">
+
+                <a href="https://github.com/girishlade111"
+                   target="_blank" rel="noopener noreferrer">GitHub</a>
+
+                <a href="https://www.linkedin.com/in/girish-lade/"
+                   target="_blank" rel="noopener noreferrer">LinkedIn</a>
+
+                <a href="https://www.instagram.com/girish_lade_/"
+                   target="_blank" rel="noopener noreferrer">Instagram</a>
+
+                <a href="https://codepen.io/Girish-Lade-the-looper"
+                   target="_blank" rel="noopener noreferrer">CodePen</a>
+
+                <a href="https://ladestack.in/"
+                   target="_blank" rel="noopener noreferrer">LadeStack</a>
+
+            </div>
+
+        </footer>
+
+    </div>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        ↑
+    </button>
+
+    <script>
+
+        "use strict";
+
+        /* ========================================
+           DOM REFERENCES
+        ======================================== */
+
+        const hero = document.getElementById("hero");
+        const heroTitle = document.getElementById("heroTitle");
+
+        const titleWrap = document.querySelector(".hero-title-wrap");
+
+        const heroArtInner = document.querySelector(".hero-art-inner");
+
+        const menuToggle = document.getElementById("menuToggle");
+        const navigation = document.getElementById("navigation");
+
+        const themeToggle = document.getElementById("themeToggle");
+
+        const projectsToggle = document.getElementById("projectsToggle");
+
+        const projectsToggleText = document.getElementById("projectsToggleText");
+
+        const extraProjects = document.getElementById("extraProjects");
+
+        const scrollProgress = document.getElementById("scrollProgress");
+
+        const backToTop = document.getElementById("backToTop");
+
+        const reduceMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        );
+
+        /* ========================================
+           RESPONSIVE OVERSIZED TYPOGRAPHY
+        ======================================== */
+
+        function fitHeroTitle() {
+
+            const availableWidth = titleWrap.clientWidth;
+
+            if (!availableWidth) return;
+
+            heroTitle.style.transform = "none";
+
+            const naturalWidth = heroTitle.getBoundingClientRect().width;
+
+            if (naturalWidth > 0) {
+
+                const scale = availableWidth / naturalWidth;
+
+                heroTitle.style.transform = `scaleX(${scale})`;
+
+            }
+
+        }
+
+        fitHeroTitle();
+
+        window.addEventListener("resize", fitHeroTitle);
+
+        if (document.fonts && document.fonts.ready) {
+
+            document.fonts.ready.then(fitHeroTitle);
+
+        }
+
+        if ("ResizeObserver" in window) {
+
+            const titleObserver = new ResizeObserver(fitHeroTitle);
+
+            titleObserver.observe(titleWrap);
+
+        }
+
+        /* ========================================
+           MOBILE NAVIGATION
+        ======================================== */
+
+        function setMenu(open) {
+
+            navigation.classList.toggle("open", open);
+
+            menuToggle.setAttribute("aria-expanded", String(open));
+
+            menuToggle.setAttribute(
+                "aria-label",
+                open ? "Close navigation" : "Open navigation"
+            );
+
+        }
+
+        menuToggle.addEventListener("click", () => {
+
+            const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+
+            setMenu(!isOpen);
+
+        });
+
+        navigation.querySelectorAll("a").forEach(link => {
+
+            link.addEventListener("click", () => setMenu(false));
+
+        });
+
+        document.addEventListener("keydown", event => {
+
+            if (event.key === "Escape") {
+
+                const isOpen =
+                    menuToggle.getAttribute("aria-expanded") === "true";
+
+                if (isOpen) {
+
+                    setMenu(false);
+
+                    menuToggle.focus();
+
+                }
+
+            }
+
+        });
+
+        document.addEventListener("click", event => {
+
+            if (!event.target.closest(".header")) {
+
+                setMenu(false);
+
+            }
+
+        });
+
+        window.addEventListener("resize", () => {
+
+            if (window.innerWidth > 760) {
+
+                setMenu(false);
+
+            }
+
+        });
+
+        /* ========================================
+           DARK THEME
+        ======================================== */
+
+        function applyTheme(dark) {
+
+            document.body.classList.toggle("dark", dark);
+
+            themeToggle.setAttribute("aria-pressed", String(dark));
+
+            themeToggle.setAttribute(
+                "aria-label",
+                dark ? "Switch to light theme" : "Switch to dark theme"
+            );
+
+            document.querySelector('meta[name="theme-color"]')
+                .setAttribute("content", dark ? "#242520" : "#e9e6dc");
+
+        }
+
+        try {
+
+            const savedTheme = localStorage.getItem("gridforge-theme");
+
+            applyTheme(savedTheme === "dark");
+
+        } catch (error) {
+
+            applyTheme(false);
+
+        }
+
+        themeToggle.addEventListener("click", () => {
+
+            const dark = !document.body.classList.contains("dark");
+
+            applyTheme(dark);
+
+            try {
+
+                localStorage.setItem(
+                    "gridforge-theme",
+                    dark ? "dark" : "light"
+                );
+
+            } catch (error) {
+
+                // Theme remains functional without storage.
+
+            }
+
+        });
+
+        /* ========================================
+           EXPANDABLE PROJECT GALLERY
+        ======================================== */
+
+        projectsToggle.addEventListener("click", () => {
+
+            const opening = extraProjects.hidden;
+
+            extraProjects.hidden = !opening;
+
+            projectsToggle.setAttribute(
+                "aria-expanded",
+                String(opening)
+            );
+
+            projectsToggleText.textContent = opening
+                ? "Show fewer projects"
+                : "View all projects";
+
+            if (opening) {
+
+                const cards = extraProjects.querySelectorAll(".project-card");
+
+                if (!reduceMotion.matches && typeof cards[0]?.animate === "function") {
+
+                    cards.forEach((card, index) => {
+
+                        card.animate(
+
+                            [
+                                { opacity: 0, transform: "translateY(15px)" },
+                                { opacity: 1, transform: "translateY(0)" }
+                            ],
+
+                            {
+                                duration: 400,
+                                delay: index * 50,
+                                easing: "ease-out",
+                                fill: "backwards"
+                            }
+
+                        );
+
+                    });
+
+                }
+
+            }
+
+        });
+
+        /* ========================================
+           SCROLL REVEAL
+        ======================================== */
+
+        const revealElements = document.querySelectorAll(".reveal");
+
+        if ("IntersectionObserver" in window && !reduceMotion.matches) {
+
+            const revealObserver = new IntersectionObserver(entries => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("visible");
+
+                        revealObserver.unobserve(entry.target);
+
+                    }
+
+                });
+
+            }, {
+                threshold: 0.08,
+                rootMargin: "0px 0px 20px 0px"
+            });
+
+            revealElements.forEach(element => {
+
+                revealObserver.observe(element);
+
+            });
+
+        } else {
+
+            revealElements.forEach(element => {
+
+                element.classList.add("visible");
+
+            });
+
+        }
+
+        /* ========================================
+           SUBTLE HERO PARALLAX
+        ======================================== */
+
+        const finePointer = window.matchMedia("(pointer: fine)");
+
+        hero.addEventListener("pointermove", event => {
+
+            if (!finePointer.matches || reduceMotion.matches) return;
+
+            const rect = hero.getBoundingClientRect();
+
+            const x = (event.clientX - rect.left) / rect.width - 0.5;
+
+            const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+            heroArtInner.style.setProperty("--mx", `${x * 12}px`);
+
+            heroArtInner.style.setProperty("--my", `${y * 8}px`);
+
+        });
+
+        hero.addEventListener("pointerleave", () => {
+
+            heroArtInner.style.setProperty("--mx", "0px");
+
+            heroArtInner.style.setProperty("--my", "0px");
+
+        });
+
+        /* ========================================
+           SCROLL PROGRESS AND ACTIVE NAVIGATION
+        ======================================== */
+
+        const navLinks = Array.from(
+            navigation.querySelectorAll('a[href^="#"]')
+        );
+
+        const navSections = navLinks.map(link => ({
+
+            link,
+
+            section: document.querySelector(link.getAttribute("href"))
+
+        })).filter(item => item.section);
+
+        let scrollTicking = false;
+
+        function updateScroll() {
+
+            const scrollTop = window.scrollY;
+
+            const scrollHeight =
+                document.documentElement.scrollHeight - window.innerHeight;
+
+            const progress = scrollHeight > 0
+                ? Math.min(1, Math.max(0, scrollTop / scrollHeight))
+                : 0;
+
+            scrollProgress.style.transform = `scaleX(${progress})`;
+
+            backToTop.classList.toggle("visible", scrollTop > 650);
+
+            let activeItem = null;
+
+            navSections.forEach(item => {
+
+                const rect = item.section.getBoundingClientRect();
+
+                const distance = Math.abs(rect.top);
+
+                if (
+                    rect.top <= 180 &&
+                    rect.bottom > 100 &&
+                    (!activeItem || distance < activeItem.distance)
+                ) {
+
+                    activeItem = {
+                        ...item,
+                        distance
+                    };
+
+                }
+
+            });
+
+            navLinks.forEach(link => {
+
+                const active = activeItem?.link === link;
+
+                link.classList.toggle("active", active);
+
+                if (active) {
+
+                    link.setAttribute("aria-current", "location");
+
+                } else {
+
+                    link.removeAttribute("aria-current");
+
+                }
+
+            });
+
+            scrollTicking = false;
+
+        }
+
+        window.addEventListener("scroll", () => {
+
+            if (!scrollTicking) {
+
+                window.requestAnimationFrame(updateScroll);
+
+                scrollTicking = true;
+
+            }
+
+        }, { passive: true });
+
+        updateScroll();
+
+        backToTop.addEventListener("click", () => {
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: reduceMotion.matches ? "auto" : "smooth"
+
+            });
+
+        });
+
+        /* ========================================
+           EXTERNAL IMAGE ERROR HANDLING
+        ======================================== */
+
+        document.querySelectorAll("img").forEach(img => {
+
+            function handleImageError() {
+
+                img.style.visibility = "hidden";
+
+                // The original CSS artwork or background
+                // remains visible if an external image fails.
+
+            }
+
+            img.addEventListener("error", handleImageError, { once: true });
+
+            if (img.complete && !img.naturalWidth) {
+
+                handleImageError();
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
